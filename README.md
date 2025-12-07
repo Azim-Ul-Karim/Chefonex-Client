@@ -1,16 +1,17 @@
-# React + Vite
+# Chefonex 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+Chefonex is a modern online platform that connects passionate home chefs with customers looking for fresh, healthy, and affordable homemade meals. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Chefonex supports **three user roles**: Admin, Chef, and Customer, each with their own dashboard and permissions. 
 
-## React Compiler
+Admins have full control over platform management including user moderation, fraud detection, request approvals, order tracking, and platform statistics.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+For home chefs, the platform offers a dedicated dashboard to create meals, manage orders, monitor earnings, and grow their cooking business directly from their kitchen — without needing a physical restaurant.
 
-## Expanding the ESLint configuration
+Customers can explore daily menus, check chef availability, view detailed meal information, place orders, make secure payments, and track order status in real time.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The platform includes essential features such as Firebase authentication, JWT-secured API access, role-based routes, Stripe payment system, real-time status updates, review & favorites system, advanced forms using react-hook-form, and a beautifully responsive UI with animations.
+
+Built using the MERN Stack, Chefonex delivers a smooth, secure, and scalable experience for all users.
