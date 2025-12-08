@@ -1,16 +1,20 @@
  @import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap');
  @import "tailwindcss";
+ @plugin "daisyui";
 
- @plugin "daisyui" {
-     themes: light --default;
+ @plugin "daisyui/theme" {
+     name: "light";
+     default: true;
+     --color-primary: #6f5c42;
+     --color-secondary: #afa38f;
  }
 
  .kelly-slab-regular {
-  font-family: "Kelly Slab", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+     font-family: "Kelly Slab", sans-serif;
+     font-weight: 400;
+     font-style: normal;
+ }
 
-a.active{
-    @apply bg-[#afa38f] text-white px-3 py-1 rounded-full font-medium shadow-md
-}
+ a.active {
+     @apply bg-[#afa38f] text-white px-3 py-1 rounded-full font-medium shadow-md
+ }

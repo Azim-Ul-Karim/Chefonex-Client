@@ -8,12 +8,12 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const signUpUser = (email, password) => {
+    const registerUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
-    const signInUser = (email, password) => {
+    const logInUser = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, profile);
     }
 
-    const signOutUser = () => {
+    const logOutUser = () => {
         setLoading(true);
         return signOut(auth);
     }
@@ -40,10 +40,10 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         loading,
-        signUpUser,
-        signInUser,
+        registerUser,
+        logInUser,
         updateUserProfile,
-        signOutUser
+        logOutUser
     }
 
     return (
