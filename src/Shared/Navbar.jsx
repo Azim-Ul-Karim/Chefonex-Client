@@ -10,7 +10,6 @@ const Navbar = () => {
 
     const { user, logOutUser, loading } = useAuth();
     const [mobile, setMobile] = useState(false);
-    const [menuOpen, setMenuOpen] = useState(false);
 
     if (loading) {
         return <Loader></Loader>
@@ -143,28 +142,15 @@ const Navbar = () => {
 
                 {
                     user ? (
-                        <div className="relative">
+                        <div className="flex items-center gap-4">
                             <img
                                 src={user.photoURL || fallbackImage}
                                 className="w-10 h-10 rounded-full border-2 border-[#6f5c42] cursor-pointer"
-                                onClick={() => setMenuOpen(!menuOpen)}
                             />
 
-                            {
-                                menuOpen && (
-                                    <div className="absolute right-0 mt-3 bg-[#f7f0d6] w-40 rounded-md shadow-md p-4 flex flex-col gap-2">
-                                        <button
-                                            onClick={() => {
-                                                handleLogOut();
-                                                setMenuOpen(false);
-                                            }}
-                                            className="hover:bg-[#f4dcdc] px-2 py-1 rounded-md text-left"
-                                        >
-                                            Logout
-                                        </button>
-                                    </div>
-                                )
-                            }
+                            <button className="bg-white px-3 py-1.5 rounded-md shadow font-semibold cursor-pointer" onClick={handleLogOut}>
+                                Logout
+                            </button>
                         </div>
                     ) : (
                         <div className="flex items-center gap-4">
