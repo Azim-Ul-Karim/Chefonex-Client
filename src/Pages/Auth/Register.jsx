@@ -1,11 +1,15 @@
 import React from 'react';
 import useAuth from '../../Hooks/useAuth';
 import { useForm, useWatch } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
+import axios from 'axios';
 
 const Register = () => {
 
-    const { registerUser } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const { registerUser, updateUserProfile } = useAuth();
     const { register, handleSubmit, control, formState: { errors } } = useForm();
 
     const password = useWatch({
@@ -16,10 +20,33 @@ const Register = () => {
     const handleRegister = (data) => {
         console.log(data);
 
+        const profileImage = data.photo[0];
+
         registerUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+
+                const formData = new FormData();
+                formData.append('image', profileImage);
+
+                const image_API_URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`;
+
+                axios.post(image_API_URL, formData)
+                    .then(res => {
+                        const userProfile = {
+                            displayName: data.name,
+                            photoURL: res.data.data.url
+                        }
+                        updateUserProfile(userProfile)
+                            .then(() => {
+                                navigate(location?.state || '/');
+                            })
+                            .catch(error => {
+                                console.log(error);
+                            })
+                    })
+
             })
             .catch(error => {
                 console.log(error);
@@ -28,8 +55,8 @@ const Register = () => {
 
     return (
         <section className='min-h-screen flex items-center justify-center'>
-            <div className='w-full md:w-2/3 lg:w-1/2 mx-auto p-5 md:p-12 rounded-lg my-10 bg-[#f6ebca] shadow-xl'>
-                <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold mb-10 text-center'>Create Your Account</h2>
+            <div className='w-full md:w-2/3 lg:w-1/2 mx-auto p-5 md:p-12 rounded-lg my-15 bg-[#f6ebca] shadow-xl'>
+                <h2 className='text-[#4c2d02] text-2xl md:text-3xl lg:text-4xl font-bold mb-10 text-center'>Create Your Account</h2>
 
                 <form onSubmit={handleSubmit(handleRegister)}>
                     <fieldset className="fieldset flex flex-col gap-2 text-sm">
@@ -60,7 +87,11 @@ const Register = () => {
 
                         {/* Photo Upload */}
                         <label className="label font-semibold">Photo Upload</label>
-                        <input type="file" className="file-input" />
+                        <input
+                            {...register('photo')}
+                            type="file"
+                            className="file-input"
+                        />
 
                         {/* Address */}
                         <label className="label font-semibold">Address</label>
@@ -115,7 +146,7 @@ const Register = () => {
 
                         <p>
                             Already have an account?{" "}
-                            <Link to="/login" className="text-[#750942] font-semibold">
+                            <Link state={location.state} to="/login" className="text-[#750942] font-semibold">
                                 Login
                             </Link>
                         </p>
