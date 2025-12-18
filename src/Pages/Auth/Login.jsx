@@ -28,6 +28,9 @@ const Login = () => {
 
     return (
         <section className='min-h-screen flex items-center justify-center'>
+
+            <title>Login | Chefonex</title>
+            
             <div className='w-full md:w-2/3 lg:w-1/2 mx-auto p-5 md:p-12 rounded-lg my-15 bg-[#f6ebca] shadow-xl'>
                 <h2 className='text-[#4c2d02] text-2xl md:text-3xl lg:text-4xl font-bold mb-10 text-center'>Welcome Again</h2>
 

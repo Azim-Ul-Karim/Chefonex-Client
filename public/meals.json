@@ -1,0 +1,131 @@
+[
+  {
+    "_id": { "$oid": "6937c23a2f4a2e25abbb9001" },
+    "mealName": "Chicken Biryani",
+    "mealPrice": 120,
+    "mealRating": 4.8,
+    "mealDescription": "Aromatic basmati rice cooked with tender chicken, saffron, and traditional homemade spices.",
+    "mealIngredients": [
+      "Basmati Rice",
+      "Chicken",
+      "Saffron",
+      "Yogurt",
+      "Onion",
+      "Ginger-Garlic Paste",
+      "Homemade Garam Masala"
+    ],
+    "mealImage": "https://i.postimg.cc/gknzDSGS/chb.jpg",
+    "deliveryArea": "Rajshahi City",
+    "estimateDeliveryTime": "30-40 minutes",
+    "chefId": "C001",
+    "chefName": "Ayesha Rahman",
+    "chefExperience": "5 years"
+  },
+  {
+    "_id": { "$oid": "6937c23a2f4a2e25abbb9002" },
+    "mealName": "Beef Tehari",
+    "mealPrice": 150,
+    "mealRating": 4.7,
+    "mealDescription": "Rajshahi-style beef tehari made with premium beef, mustard oil, and authentic local spices.",
+    "mealIngredients": [
+      "Kalijeera Rice",
+      "Beef",
+      "Mustard Oil",
+      "Green Chili",
+      "Onion",
+      "Cumin",
+      "Bay Leaf"
+    ],
+    "mealImage": "https://i.postimg.cc/k57LjGx6/beft.webp",
+    "deliveryArea": "Rajshahi City",
+    "estimateDeliveryTime": "35-45 minutes",
+    "chefId": "C002",
+    "chefName": "Rafiq Chowdhury",
+    "chefExperience": "8 years"
+  },
+  {
+    "_id": { "$oid": "6937c23a2f4a2e25abbb9003" },
+    "mealName": "Vegetable Khichuri & Beguni",
+    "mealPrice": 70,
+    "mealRating": 4.5,
+    "mealDescription": "Comforting rainy-day style khichuri served with crispy beguni.",
+    "mealIngredients": [
+      "Rice",
+      "Lentils",
+      "Turmeric",
+      "Potato",
+      "Cauliflower",
+      "Eggplant",
+      "Gram Flour"
+    ],
+    "mealImage": "https://i.postimg.cc/Dwc7ft6z/veg.webp",
+    "deliveryArea": "Rajshahi City",
+    "estimateDeliveryTime": "25-35 minutes",
+    "chefId": "C003",
+    "chefName": "Sharmeen Akter",
+    "chefExperience": "4 years"
+  },
+  {
+    "_id": { "$oid": "6937c23a2f4a2e25abbb9004" },
+    "mealName": "Grilled Chicken with Butter Rice",
+    "mealPrice": 130,
+    "mealRating": 4.9,
+    "mealDescription": "Smoky grilled chicken served with aromatic butter rice and sautéed vegetables.",
+    "mealIngredients": [
+      "Chicken Breast",
+      "Butter Rice",
+      "Bell Pepper",
+      "Black Pepper",
+      "Olive Oil",
+      "Garlic"
+    ],
+    "mealImage": "https://i.postimg.cc/jSRr1MTx/grb.jpg",
+    "deliveryArea": "Rajshahi City",
+    "estimateDeliveryTime": "30-40 minutes",
+    "chefId": "C004",
+    "chefName": "Kamrul Hasan",
+    "chefExperience": "6 years"
+  },
+  {
+    "_id": { "$oid": "6937c23a2f4a2e25abbb9005" },
+    "mealName": "Pasta Alfredo with Garlic Bread",
+    "mealPrice": 160,
+    "mealRating": 4.6,
+    "mealDescription": "Creamy Alfredo pasta topped with parmesan cheese and served with homemade garlic bread.",
+    "mealIngredients": [
+      "Pasta",
+      "Cream",
+      "Butter",
+      "Garlic",
+      "Parmesan",
+      "Oregano"
+    ],
+    "mealImage": "https://i.postimg.cc/Jzr9xtN9/pas.webp",
+    "deliveryArea": "Rajshahi City",
+    "estimateDeliveryTime": "20-30 minutes",
+    "chefId": "C005",
+    "chefName": "Sara Hossain",
+    "chefExperience": "3 years"
+  },
+  {
+    "_id": { "$oid": "6937c23a2f4a2e25abbb9006" },
+    "mealName": "Fish Curry with Steamed Rice",
+    "mealPrice": 100,
+    "mealRating": 4.4,
+    "mealDescription": "Traditional Bangladeshi fish curry cooked in mustard and coconut-based gravy.",
+    "mealIngredients": [
+      "Rui Fish",
+      "Mustard",
+      "Coconut Milk",
+      "Turmeric",
+      "Coriander",
+      "Green Chili"
+    ],
+    "mealImage": "https://i.postimg.cc/9XP8kCQ4/fis.jpg",
+    "deliveryArea": "Rajshahi City",
+    "estimateDeliveryTime": "25-35 minutes",
+    "chefId": "C006",
+    "chefName": "Jamal Uddin",
+    "chefExperience": "10 years"
+  }
+]

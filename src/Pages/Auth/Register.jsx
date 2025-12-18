@@ -3,11 +3,13 @@ import useAuth from '../../Hooks/useAuth';
 import { useForm, useWatch } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router';
 import axios from 'axios';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const Register = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure();
 
     const { registerUser, updateUserProfile } = useAuth();
     const { register, handleSubmit, control, formState: { errors } } = useForm();
@@ -34,9 +36,22 @@ const Register = () => {
 
                 axios.post(image_API_URL, formData)
                     .then(res => {
+                        const photoURL = res.data.data.url;
+
+                        const userInfo = {
+                            email: data.email,
+                            displayName: data.name,
+                            photoURL: photoURL,
+                            address: data.address
+                        }
+                        axiosSecure.post('/users', userInfo)
+                            .then((res) => {
+                                console.log('User Created.', res);
+                            })
+
                         const userProfile = {
                             displayName: data.name,
-                            photoURL: res.data.data.url
+                            photoURL: photoURL
                         }
                         updateUserProfile(userProfile)
                             .then(() => {
@@ -55,6 +70,9 @@ const Register = () => {
 
     return (
         <section className='min-h-screen flex items-center justify-center'>
+
+            <title>Register | Chefonex</title>
+            
             <div className='w-full md:w-2/3 lg:w-1/2 mx-auto p-5 md:p-12 rounded-lg my-15 bg-[#f6ebca] shadow-xl'>
                 <h2 className='text-[#4c2d02] text-2xl md:text-3xl lg:text-4xl font-bold mb-10 text-center'>Create Your Account</h2>
 
@@ -90,7 +108,7 @@ const Register = () => {
                         <input
                             {...register('photo')}
                             type="file"
-                            className="file-input"
+                            className="file-input w-full"
                         />
 
                         {/* Address */}

@@ -39,7 +39,7 @@ const Navbar = () => {
                     {mobile ? <IoIosArrowDropup /> : <AiOutlineMenuUnfold />}
                 </div>
 
-                <Logo></Logo>
+                <Link to='/'><Logo></Logo></Link>
 
                 {
                     user && (
@@ -74,7 +74,7 @@ const Navbar = () => {
                 {
                     user && (
                         <NavLink
-                            to="/dashboard"
+                            to="/dashboard/my-orders"
                             className="hover:bg-[#e2d6be] px-2 py-1 rounded-md"
                             onClick={() => setMobile(false)}
                         >
@@ -117,7 +117,7 @@ const Navbar = () => {
             </div>
 
             <div className="hidden md:flex items-center justify-between w-11/12 mx-auto p-2.5">
-                <Logo></Logo>
+                <Link to='/'><Logo></Logo></Link>
 
                 <div className="flex items-center gap-6">
                     <NavLink className="hover:bg-[#e2d6be] px-2 py-1 rounded-md" to="/">
@@ -132,7 +132,7 @@ const Navbar = () => {
                         user && (
                             <NavLink
                                 className="hover:bg-[#e2d6be] px-2 py-1 rounded-md"
-                                to="/dashboard"
+                                to="/dashboard/my-profile"
                             >
                                 Dashboard
                             </NavLink>
