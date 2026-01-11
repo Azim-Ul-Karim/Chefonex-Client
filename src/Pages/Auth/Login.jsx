@@ -9,10 +9,15 @@ const Login = () => {
     const navigate = useNavigate();
 
     const { logInUser } = useAuth();
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+
+    const DEMO_USER = {
+        email: 'prog@ram.ing',
+        password: 'Programming!0'
+    };
 
     const handleLogin = (data) => {
-        console.log(data);
+        // console.log(data);
 
         logInUser(data.email, data.password)
             .then(result => {
@@ -26,11 +31,16 @@ const Login = () => {
             })
     }
 
+    const handleDemoLogin = () => {
+        setValue('email', DEMO_USER.email);
+        setValue('password', DEMO_USER.password);
+    };
+
     return (
         <section className='min-h-screen flex items-center justify-center'>
 
             <title>Login | Chefonex</title>
-            
+
             <div className='w-full md:w-2/3 lg:w-1/2 mx-auto p-5 md:p-12 rounded-lg my-15 bg-[#f6ebca] shadow-xl'>
                 <h2 className='text-[#4c2d02] text-2xl md:text-3xl lg:text-4xl font-bold mb-10 text-center'>Welcome Again</h2>
 
@@ -88,6 +98,14 @@ const Login = () => {
 
                         <button type="submit" className="btn bg-primary text-white font-semibold mt-2">
                             Login
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={handleDemoLogin}
+                            className="btn bg-secondary text-white mt-2"
+                        >
+                            Demo User Login
                         </button>
                     </fieldset>
                 </form>

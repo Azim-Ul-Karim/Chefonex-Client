@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import Loader from '../../Components/Loader';
 import MealCard from './MealCard';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import ReturnTop from '../../Components/ReturnTop';
 
 const ITEMS_PER_PAGE = 10;
 
@@ -49,12 +50,12 @@ const Meals = () => {
                 Explore Meals
             </h2>
 
-            <div className="flex justify-center items-center gap-3">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-1 md:gap-3">
 
                 {/* Search */}
                 <form onSubmit={handleSearch} className="join flex justify-center">
                     <div>
-                        <input type='text' name='search' className="input focus:outline-none join-item w-50 md:w-xl" placeholder="Search meals..." />
+                        <input type='text' name='search' className="input focus:outline-none join-item w-60 md:w-80 lg:w-xl" placeholder="Search meals..." />
                     </div>
                     <div>
                         <button className="btn bg-primary text-white join-item">Search</button>
@@ -63,7 +64,7 @@ const Meals = () => {
 
                 {/* Sort */}
                 <fieldset className="fieldset">
-                    <select value={sortOrder} onChange={handleSort} className="select w-32 !outline-none !ring-0 !shadow-none">
+                    <select value={sortOrder} onChange={handleSort} className="select w-78 md:w-32 !outline-none !ring-0 !shadow-none">
                         <option disabled value="">Sort By: Price</option>
                         <option value="asc">Low → High</option>
                         <option value="desc">High → Low</option>
@@ -102,6 +103,8 @@ const Meals = () => {
                     </div>
                 )
             }
+
+            <ReturnTop></ReturnTop>
         </div>
     );
 };

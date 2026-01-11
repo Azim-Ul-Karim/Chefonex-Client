@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import useAuth from './useAuth';
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'https://chefonex.vercel.app'
 })
 
 const useAxiosSecure = () => {
@@ -24,7 +24,7 @@ const useAxiosSecure = () => {
             },
             (error) => {
                 console.log(error);
-                const statusCode = error.status;
+                const statusCode = error.response?.status;
                 if (statusCode === 401 || statusCode === 403) {
                     logOutUser()
                         .then(() => {

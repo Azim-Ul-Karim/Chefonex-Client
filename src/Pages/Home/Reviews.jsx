@@ -2,17 +2,15 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { IoStar } from 'react-icons/io5';
 import { motion } from "motion/react";
-import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import Loader from '../../Components/Loader';
+import axios from 'axios';
 
 const Reviews = () => {
-
-    const axiosSecure = useAxiosSecure();
 
     const { data: reviews = [], isLoading } = useQuery({
         queryKey: ['reviews'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/reviews');
+            const res = await axios.get('https://chefonex.vercel.app/reviews');
             return res.data;
         }
     });

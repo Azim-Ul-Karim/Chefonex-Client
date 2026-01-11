@@ -1,16 +1,18 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router';
-import { IoStar } from 'react-icons/io5';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import Loader from '../../Components/Loader';
 import MealCard from '../Meals/MealCard';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const Trending = () => {
 
     const axiosSecure = useAxiosSecure();
 
-    const { data: meals = [], isLoading } = useQuery({
+    const { data = {}, isLoading } = useQuery({
         queryKey: ['daily-meals'],
         queryFn: async () => {
             const res = await axiosSecure.get('/meals?limit=6');
@@ -18,8 +20,10 @@ const Trending = () => {
         }
     });
 
+    const meals = data.meals || [];
+
     if (isLoading) {
-        return <Loader></Loader>
+        return <Loader />;
     }
 
     return (
@@ -28,11 +32,38 @@ const Trending = () => {
                 Trending Meals
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <Swiper
+                modules={[Autoplay, Navigation, Pagination]}
+                spaceBetween={20}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
+                pagination={{ clickable: true }}
+                loop={meals.length > 4}
+                breakpoints={{
+                    0: {
+                        slidesPerView: 1,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                    1280: {
+                        slidesPerView: 4,
+                    },
+                }}
+            >
                 {
-                    meals.map(meal => <MealCard key={meal._id} meal={meal}></MealCard>)
+                    meals.map(meal => (
+                        <SwiperSlide key={meal._id}>
+                            <MealCard meal={meal} />
+                        </SwiperSlide>
+                    ))
                 }
-            </div>
+            </Swiper>
         </section>
     );
 };

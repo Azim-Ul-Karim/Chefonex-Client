@@ -71,6 +71,14 @@ const Navbar = () => {
                     Meals
                 </NavLink>
 
+                <NavLink
+                    to="/about"
+                    className="hover:bg-[#e2d6be] px-2 py-1 rounded-md"
+                    onClick={() => setMobile(false)}
+                >
+                    About
+                </NavLink>
+
                 {
                     user && (
                         <NavLink
@@ -126,6 +134,10 @@ const Navbar = () => {
 
                     <NavLink className="hover:bg-[#e2d6be] px-2 py-1 rounded-md" to="/meals">
                         Meals
+                    </NavLink>
+
+                    <NavLink className="hover:bg-[#e2d6be] px-2 py-1 rounded-md" to="/about">
+                        About
                     </NavLink>
 
                     {

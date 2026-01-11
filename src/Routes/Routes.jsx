@@ -24,6 +24,7 @@ import ChefRoute from "./ChefRoute";
 import UpdateMeal from "../Pages/Dashboard/CreateMeals/UpdateMeal";
 import Home from "../Pages/Home/Home";
 import PathError from "./PathError";
+import About from "../Pages/About/About";
 
 export const router = createBrowserRouter([
     {
@@ -41,11 +42,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'meals/:id',
-                element: (
-                    <PrivateRoute>
-                        <MealDetails></MealDetails>
-                    </PrivateRoute>
-                )
+                element: <MealDetails></MealDetails>
+            },
+            {
+                path: 'about',
+                Component: About
             },
             {
                 path: 'register',

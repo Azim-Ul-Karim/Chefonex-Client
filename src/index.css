@@ -18,3 +18,13 @@
  a.active {
      @apply bg-[#afa38f] text-white px-3 py-1 rounded-full font-medium shadow-md
  }
+
+ .swiper-pagination-bullet {
+     background-color: #afa38f !important;
+     opacity: 0.5 !important;
+ }
+
+ .swiper-pagination-bullet-active {
+     background-color: #6f5c42 !important;
+     opacity: 1 !important;
+ }
